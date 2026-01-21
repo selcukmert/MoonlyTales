@@ -182,15 +182,23 @@ class BackgroundAudioManager: ObservableObject {
         var currentStep = 0
         
         fadeTimer = Timer.scheduledTimer(withTimeInterval: stepDuration, repeats: true) { [weak self] timer in
-            currentStep += 1
-            
-            let newVolume = startVolume + (volumeStep * Float(currentStep))
-            self?.audioPlayer?.volume = newVolume
-            
-            if currentStep >= steps {
+            guard let self else {
                 timer.invalidate()
-                self?.audioPlayer?.volume = targetVolume
-                completion?()
+                return
+            }
+            
+            // Timer runs on main run loop, so we can safely assume main actor isolation
+            MainActor.assumeIsolated {
+                currentStep += 1
+                
+                let newVolume = startVolume + (volumeStep * Float(currentStep))
+                self.audioPlayer?.volume = newVolume
+                
+                if currentStep >= steps {
+                    timer.invalidate()
+                    self.audioPlayer?.volume = targetVolume
+                    completion?()
+                }
             }
         }
     }

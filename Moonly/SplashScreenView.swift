@@ -1,7 +1,7 @@
 import SwiftUI
 import Lottie
 
-struct SplashScreenView: View {
+struct SplashScreenViewOld: View {
     @State private var isAnimationComplete = false
     
     var body: some View {
@@ -28,19 +28,6 @@ struct SplashScreenView: View {
                     }
                 }
             }
-        }
-    }
-}
-
-// Placeholder for your main content
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Text("Welcome!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            Text("Main App Content")
-                .foregroundStyle(.secondary)
         }
     }
 }

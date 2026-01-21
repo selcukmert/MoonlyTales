@@ -44,7 +44,6 @@ struct BedtimeStoryPlayerWithAmbience: View {
                         // Story metadata
                         HStack(spacing: 16) {
                             Label("\(story.readTime) min", systemImage: "clock")
-                            Label("\(story.pageCount) pages", systemImage: "book")
                         }
                         .font(.subheadline)
                         .foregroundColor(.white.opacity(0.6))
@@ -53,7 +52,7 @@ struct BedtimeStoryPlayerWithAmbience: View {
                             .background(Color.white.opacity(0.2))
                         
                         // Story content
-                        Text(story.content)
+                        Text(story.fullDescription)
                             .font(.system(size: 18, design: .serif))
                             .foregroundColor(.white.opacity(0.85))
                             .lineSpacing(10)
@@ -77,7 +76,7 @@ struct BedtimeStoryPlayerWithAmbience: View {
             BackgroundAudioManager.enableBackgroundAudio()
             
             // Prepare speech content
-            await speechManager.prepareContent(text: story.content, language: .english)
+            await speechManager.prepareContent(text: story.fullDescription, language: .english)
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             handleScenePhaseChange(newPhase)

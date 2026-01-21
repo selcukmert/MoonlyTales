@@ -7,15 +7,12 @@
 
 import SwiftUI
 
+// Bu dosya artık kullanılmıyor - SplashScreenView direkt HomeView'e geçiyor
+// Proje temiz kalması için saklanıyor
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        HomeView()
     }
 }
 

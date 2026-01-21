@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Combine
 
 // MARK: - Quick Start: Minimal Example
 
@@ -41,7 +42,7 @@ struct MinimalBackgroundAudioExample: View {
 // MARK: - Simple Audio Manager (All-in-One)
 
 @MainActor
-class SimpleAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+class SimpleAudioManager: NSObject, ObservableObject, @preconcurrency AVSpeechSynthesizerDelegate {
     
     private let synthesizer = AVSpeechSynthesizer()
     private var backgroundPlayer: AVAudioPlayer?
@@ -69,35 +70,46 @@ class SimpleAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegat
     
     // STEP 2: Play TTS + Background Audio Together
     func playStoryWithBackground(text: String, backgroundSound: String) {
-        // Start background audio first
-        startBackgroundAudio(soundName: backgroundSound)
+        print("🎬 Starting playback...")
         
-        // Then start speaking
+        // Prepare the background audio (but don't start yet)
+        prepareBackgroundAudio(soundName: backgroundSound)
+        
+        // Start speaking - background will start when speech begins
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = 0.40           // Slow, calm pace
         utterance.volume = 0.85         // Speech louder than background
         utterance.pitchMultiplier = 0.95
         
+        print("🗣️ Starting speech synthesis...")
         synthesizer.speak(utterance)
     }
     
-    // STEP 3: Background Audio Setup
-    private func startBackgroundAudio(soundName: String) {
+    // STEP 3: Prepare Background Audio (load but don't play yet)
+    private func prepareBackgroundAudio(soundName: String) {
+        print("🔍 Looking for audio file: \(soundName).mp3")
+        
         // Stop existing background if playing
         backgroundPlayer?.stop()
         
         // Load audio file
         guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
-            print("❌ Could not find \(soundName).mp3")
+            print("❌ Could not find \(soundName).mp3 in bundle")
+            print("📦 Bundle path: \(Bundle.main.bundlePath)")
             return
         }
+        
+        print("✅ Found audio file at: \(url.path)")
         
         do {
             backgroundPlayer = try AVAudioPlayer(contentsOf: url)
             backgroundPlayer?.numberOfLoops = -1  // Loop forever
-            backgroundPlayer?.volume = 0.30       // Keep it subtle
-            backgroundPlayer?.play()
-            print("✅ Playing background: \(soundName)")
+            backgroundPlayer?.volume = 0.50       // Increased volume for debugging
+            
+            let prepared = backgroundPlayer?.prepareToPlay() ?? false
+            print("✅ Background audio prepared: \(prepared)")
+            print("📊 Audio duration: \(backgroundPlayer?.duration ?? 0) seconds")
+            print("🔊 Audio volume: \(backgroundPlayer?.volume ?? 0)")
         } catch {
             print("❌ Error loading audio: \(error)")
         }
@@ -112,10 +124,21 @@ class SimpleAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegat
     // Optional: Delegate methods for monitoring
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("🗣️ Started speaking")
+        
+        // NOW start the background music when speech begins
+        if let player = backgroundPlayer {
+            player.play()
+            print("🎵 Music box started playing (isPlaying: \(player.isPlaying))")
+        } else {
+            print("❌ Background player is nil!")
+        }
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         print("✅ Finished speaking")
+        // Keep music playing after speech ends
+        // Uncomment below to auto-stop:
+        // backgroundPlayer?.stop()
     }
 }
 
@@ -197,7 +220,7 @@ class SimpleAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegat
 // MARK: - Alternative: Using Published Properties
 
 @MainActor
-class ReactiveAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+class ReactiveAudioManager: NSObject, ObservableObject, @preconcurrency AVSpeechSynthesizerDelegate {
     
     // Published state for SwiftUI
     @Published var isSpeaking = false
@@ -223,7 +246,10 @@ class ReactiveAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDeleg
     }
     
     func playStory(text: String, withBackground soundName: String) {
-        startBackgroundAudio(soundName: soundName)
+        print("🎬 [Reactive] Starting playback...")
+        
+        // Prepare background audio (don't play yet)
+        prepareBackgroundAudio(soundName: soundName)
         
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = 0.40
@@ -231,6 +257,24 @@ class ReactiveAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDeleg
         utterance.pitchMultiplier = 0.95
         
         synthesizer.speak(utterance)
+    }
+    
+    private func prepareBackgroundAudio(soundName: String) {
+        print("🔍 [Reactive] Looking for: \(soundName).mp3")
+        
+        guard let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") else {
+            print("❌ [Reactive] Could not find \(soundName).mp3")
+            return
+        }
+        
+        print("✅ [Reactive] Found audio file")
+        
+        backgroundPlayer = try? AVAudioPlayer(contentsOf: url)
+        backgroundPlayer?.numberOfLoops = -1
+        backgroundPlayer?.volume = backgroundVolume
+        backgroundPlayer?.prepareToPlay()
+        
+        print("✅ [Reactive] Audio prepared, volume: \(backgroundVolume)")
     }
     
     func startBackgroundAudio(soundName: String) {
@@ -264,10 +308,22 @@ class ReactiveAudioManager: NSObject, ObservableObject, AVSpeechSynthesizerDeleg
     // Delegate methods
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         isSpeaking = true
+        
+        // Start background music when speech begins
+        if let player = backgroundPlayer {
+            player.play()
+            isBackgroundPlaying = true
+            print("🎵 [Reactive] Music started (isPlaying: \(player.isPlaying))")
+        } else {
+            print("❌ [Reactive] Background player is nil!")
+        }
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         isSpeaking = false
+        // Keep music playing after speech ends
+        // Or uncomment to auto-stop:
+        // stopBackgroundAudio()
     }
 }
 
@@ -404,3 +460,4 @@ struct StatusBadge: View {
      story ends or implementing a sleep timer.
  
  */
+

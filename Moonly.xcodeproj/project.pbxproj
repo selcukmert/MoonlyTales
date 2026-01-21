@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF1F2CC32F169A9800A2F48B /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = EF1F2CC22F169A9800A2F48B /* RevenueCat */; };
+		EF1F2CC52F169A9800A2F48B /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF1F2CC42F169A9800A2F48B /* RevenueCatUI */; };
+		EF557EE22F14CD1C00E6FE8C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EF557EE12F14CD1C00E6FE8C /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EFF1CEA92F140C8800ECDE66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1F2CC32F169A9800A2F48B /* RevenueCat in Frameworks */,
+				EF557EE22F14CD1C00E6FE8C /* Lottie in Frameworks */,
+				EF1F2CC52F169A9800A2F48B /* RevenueCatUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,9 @@
 			);
 			name = Moonly;
 			packageProductDependencies = (
+				EF557EE12F14CD1C00E6FE8C /* Lottie */,
+				EF1F2CC22F169A9800A2F48B /* RevenueCat */,
+				EF1F2CC42F169A9800A2F48B /* RevenueCatUI */,
 			);
 			productName = Moonly;
 			productReference = EFF1CE9B2F140C8600ECDE66 /* Moonly.app */;
@@ -195,6 +207,10 @@
 			);
 			mainGroup = EFF1CE922F140C8600ECDE66;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EF557EE02F14CD1C00E6FE8C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				EF1F2CC12F169A9800A2F48B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EFF1CE9C2F140C8600ECDE66 /* Products */;
 			projectDirPath = "";
@@ -396,7 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N7P6WGZ75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dobbytech.Moonly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -428,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N7P6WGZ75M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -441,7 +457,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dobbytech.Moonly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -578,6 +594,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF1F2CC12F169A9800A2F48B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.54.0;
+			};
+		};
+		EF557EE02F14CD1C00E6FE8C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF1F2CC22F169A9800A2F48B /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1F2CC12F169A9800A2F48B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		EF1F2CC42F169A9800A2F48B /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF1F2CC12F169A9800A2F48B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+		EF557EE12F14CD1C00E6FE8C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF557EE02F14CD1C00E6FE8C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFF1CE932F140C8600ECDE66 /* Project object */;
 }

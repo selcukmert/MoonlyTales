@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var stories = Story.sampleStories
+    @State private var stories: [Story] = []
     
     var body: some View {
         NavigationStack {
@@ -31,17 +31,7 @@ struct HomeView: View {
                                     .tracking(1)
                                 
                                 Spacer()
-                                
-                                Button(action: {}) {
-                                    Image(systemName: "person.circle.fill")
-                                        .font(.system(size: 32))
-                                        .foregroundColor(.white.opacity(0.8))
-                                }
                             }
-                            
-                            Text("Sleep well, Alex")
-                                .font(.system(size: 42, weight: .bold, design: .serif))
-                                .foregroundColor(.white)
                         }
                         .padding(.horizontal, 24)
                         .padding(.top, 20)
@@ -56,52 +46,22 @@ struct HomeView: View {
                             }
                         }
                         .padding(.horizontal, 16)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 40)
                     }
                 }
-                
-                // Bottom navigation bar
-                VStack {
-                    Spacer()
-                    
-                    HStack(spacing: 0) {
-                        TabBarButton(icon: "house.fill", isSelected: true)
-                        Spacer()
-                        TabBarButton(icon: "heart", isSelected: false)
-                        Spacer()
-                        TabBarButton(icon: "magnifyingglass", isSelected: false)
-                        Spacer()
-                        TabBarButton(icon: "gearshape", isSelected: false)
-                    }
-                    .padding(.horizontal, 40)
-                    .padding(.vertical, 20)
-                    .background(
-                        RoundedRectangle(cornerRadius: 30)
-                            .fill(Color(white: 0.1, opacity: 0.8))
-                            .shadow(color: .black.opacity(0.3), radius: 20, y: -5)
-                    )
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 12)
+            }
+            .onAppear {
+                if stories.isEmpty {
+                    stories = StoryLoader.loadStories()
                 }
             }
         }
     }
 }
 
-struct TabBarButton: View {
-    let icon: String
-    let isSelected: Bool
-    
-    var body: some View {
-        Button(action: {}) {
-            Image(systemName: icon)
-                .font(.system(size: 24, weight: isSelected ? .semibold : .regular))
-                .foregroundColor(isSelected ? Color.blue : Color.white.opacity(0.4))
-                .frame(width: 44, height: 44)
-        }
-    }
-}
-
 #Preview {
     HomeView()
+        .onAppear {
+            print("🎬 Preview başlatıldı")
+        }
 }

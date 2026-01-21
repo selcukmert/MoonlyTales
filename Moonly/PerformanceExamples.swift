@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import Combine
 
 // MARK: - Example 1: Story Detail View with Instant Response
 
-struct StoryDetailViewExample: View {
+struct StoryDetailPerformanceExample: View {
     let story: Story
     @StateObject private var ttsManager = SpeechManager()
     
     var body: some View {
         VStack(spacing: 24) {
             // Story preview
-            Text(story.titleEn)
+            Text(story.title)
                 .font(.title)
             
             // Status indicator
@@ -61,8 +62,9 @@ struct StoryDetailViewExample: View {
         .padding()
         .task {
             // Prepare content as soon as view appears
+            let fullContent = story.chapters.map { $0.content }.joined(separator: " ")
             await ttsManager.prepareContent(
-                text: story.contentEn,
+                text: fullContent,
                 language: .english
             )
         }
@@ -135,7 +137,7 @@ class ReaderViewModel: ObservableObject {
         }.value
         
         // Update UI on main thread
-        content = language == .turkish ? story.contentTr : story.contentEn
+        content = story.chapters.map { $0.content }.joined(separator: "\n\n")
         
         // Add small delay for transition
         try? await Task.sleep(nanoseconds: 50_000_000)
@@ -214,7 +216,7 @@ class TextProcessorViewModel: ObservableObject {
         // Process in background
         let chunks = await Task.detached(priority: .userInitiated) {
             // Heavy regex or text manipulation
-            return self.splitIntoChunks(text)
+            return Self.splitIntoChunks(text)
         }.value
         
         // Update UI
@@ -222,10 +224,12 @@ class TextProcessorViewModel: ObservableObject {
         isProcessing = false
     }
     
-    private func splitIntoChunks(_ text: String) -> [String] {
+    // Make this a static method since it doesn't need instance state
+    // Mark as nonisolated since it doesn't need main actor access
+    nonisolated private static func splitIntoChunks(_ text: String) -> [String] {
         // Expensive operation (off main thread)
         let pattern = "(?<=[.!?])\\s+"
-        guard let regex = try? NSRegularExpression(pattern: pattern) else {
+        guard (try? NSRegularExpression(pattern: pattern)) != nil else {
             return [text]
         }
         
@@ -446,10 +450,173 @@ struct PerformanceMeasured<Content: View>: View {
 //     MyExpensiveView()
 // }
 
+// MARK: - Example 7: Story with Background Audio
+
+struct StoryWithBackgroundAudioExample: View {
+    let story: Story
+    @StateObject private var speechManager = SpeechManager()
+    @StateObject private var audioManager = BackgroundAudioManager()
+    
+    var body: some View {
+        VStack(spacing: 24) {
+            // Story title
+            Text(story.title)
+                .font(.title)
+                .foregroundColor(.white)
+            
+            // Ambient sound selector
+            Menu {
+                ForEach(BackgroundAudioManager.AmbientSound.allCases) { sound in
+                    Button {
+                        audioManager.play(sound: sound, fadeIn: true)
+                    } label: {
+                        Label(sound.rawValue, systemImage: sound.icon)
+                    }
+                }
+                
+                if audioManager.isPlaying {
+                    Divider()
+                    Button(role: .destructive) {
+                        audioManager.stop(fadeOut: true)
+                    } label: {
+                        Label("Stop Background", systemImage: "stop.fill")
+                    }
+                }
+            } label: {
+                HStack {
+                    Image(systemName: audioManager.currentSound?.icon ?? "moon.stars")
+                    Text(audioManager.currentSound?.rawValue ?? "Select Ambience")
+                    Image(systemName: "chevron.down")
+                }
+                .padding()
+                .background(Color.white.opacity(0.1))
+                .cornerRadius(12)
+            }
+            .foregroundColor(.white)
+            
+            // Background volume slider
+            if audioManager.isPlaying {
+                VStack(spacing: 8) {
+                    Text("Background Volume")
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.7))
+                    
+                    HStack {
+                        Image(systemName: "speaker.fill")
+                            .foregroundColor(.white.opacity(0.5))
+                        Slider(
+                            value: Binding(
+                                get: { audioManager.volume },
+                                set: { audioManager.setVolume($0) }
+                            ),
+                            in: 0...1
+                        )
+                        .tint(.blue)
+                        Image(systemName: "speaker.wave.3.fill")
+                            .foregroundColor(.white.opacity(0.5))
+                    }
+                }
+                .transition(.opacity)
+            }
+            
+            // Play/Pause button
+            Button {
+                speechManager.togglePlayPause()
+            } label: {
+                HStack {
+                    Image(systemName: buttonIcon)
+                    Text(buttonTitle)
+                }
+                .frame(width: 200, height: 50)
+                .background(
+                    LinearGradient(
+                        colors: [Color.blue, Color.purple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .foregroundColor(.white)
+                .cornerRadius(12)
+            }
+            .disabled(speechManager.isPreparingContent)
+            
+            // Status
+            if speechManager.isPlaying {
+                VStack(spacing: 8) {
+                    ProgressView(
+                        value: speechManager.currentTime,
+                        total: speechManager.totalTime
+                    )
+                    .tint(.blue)
+                    
+                    HStack {
+                        Text(timeString(speechManager.currentTime))
+                        Spacer()
+                        Text(timeString(speechManager.totalTime))
+                    }
+                    .font(.caption)
+                    .foregroundColor(.white.opacity(0.6))
+                }
+                .padding()
+            }
+        }
+        .padding()
+        .background(
+            LinearGradient(
+                colors: [
+                    Color(red: 0.08, green: 0.1, blue: 0.15),
+                    Color(red: 0.05, green: 0.07, blue: 0.12)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        )
+        .task {
+            // Configure audio session
+            BackgroundAudioManager.enableBackgroundAudio()
+            
+            // Prepare speech
+            let fullContent = story.chapters.map { $0.content }.joined(separator: " ")
+            await speechManager.prepareContent(
+                text: fullContent,
+                language: .english
+            )
+        }
+        .onDisappear {
+            speechManager.stop()
+            audioManager.stop(fadeOut: true)
+        }
+    }
+    
+    private var buttonIcon: String {
+        if speechManager.isPlaying && !speechManager.isPaused {
+            return "pause.circle.fill"
+        } else {
+            return "play.circle.fill"
+        }
+    }
+    
+    private var buttonTitle: String {
+        if speechManager.isPreparingContent {
+            return "Preparing..."
+        } else if speechManager.isPlaying && !speechManager.isPaused {
+            return "Pause"
+        } else {
+            return "Play"
+        }
+    }
+    
+    private func timeString(_ time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+}
+
 // MARK: - Previews
 
 #Preview("Story Detail") {
-    StoryDetailViewExample(story: Story.sampleStories[0])
+    StoryDetailPerformanceExample(story: Story.sampleStories[0])
 }
 
 #Preview("Optimistic Button") {
@@ -463,3 +630,11 @@ struct PerformanceMeasured<Content: View>: View {
 #Preview("Progressive Loading") {
     ProgressiveLoadingExample()
 }
+#Preview("Story with Background Audio") {
+    if let story = Story.sampleStories.first {
+        StoryWithBackgroundAudioExample(story: story)
+    } else {
+        Text("No sample stories available")
+    }
+}
+

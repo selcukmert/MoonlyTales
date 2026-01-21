@@ -23,8 +23,6 @@ struct BedtimeStoryPlayerExample: View {
     And when the stories ended, they would all fall asleep peacefully.
     """
     
-    let language: AppLanguage = .english
-    
     var body: some View {
         ZStack {
             // Background
@@ -53,13 +51,17 @@ struct BedtimeStoryPlayerExample: View {
                 EnhancedAudioPlayer(
                     speechManager: ttsManager,
                     onPlay: {
-                        ttsManager.speak(text: storyText, language: language)
+                        ttsManager.togglePlayPause()
                     },
                     onStop: {
                         ttsManager.stop()
                     }
                 )
             }
+        }
+        .task {
+            // Prepare content when view appears
+            await ttsManager.prepareContent(text: storyText, language: .english)
         }
         .onDisappear {
             ttsManager.stop()
