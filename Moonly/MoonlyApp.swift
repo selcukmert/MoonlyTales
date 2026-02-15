@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MoonlyApp: App {
+    @StateObject private var languageManager = LanguageManager.shared
+    
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+                .environmentObject(languageManager)
         }
     }
 }

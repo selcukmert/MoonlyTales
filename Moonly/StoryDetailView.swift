@@ -10,6 +10,7 @@ import SwiftUI
 struct StoryDetailView: View {
     let story: Story
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var languageManager: LanguageManager
     
     var body: some View {
         ZStack {
@@ -64,7 +65,7 @@ struct StoryDetailView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "moon.fill")
                                 .font(.system(size: 12))
-                            Text("BEDTIME STORY")
+                            Text(languageManager.currentLanguage == .turkish ? "UYKU HİKAYESİ" : "BEDTIME STORY")
                                 .font(.system(size: 12, weight: .semibold))
                                 .tracking(0.5)
                         }
@@ -79,7 +80,7 @@ struct StoryDetailView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "clock.fill")
                                 .font(.system(size: 12))
-                            Text("\(story.readTime) MINS")
+                            Text("\(story.readTime) \(languageManager.currentLanguage == .turkish ? "DAKİKA" : "MINS")")
                                 .font(.system(size: 12, weight: .semibold))
                                 .tracking(0.5)
                         }
@@ -95,13 +96,13 @@ struct StoryDetailView: View {
                     }
                     
                     // Title
-                    Text(story.title)
+                    Text(story.title(for: languageManager.currentLanguage))
                         .font(.system(size: 48, weight: .bold, design: .serif))
                         .foregroundColor(.white)
                         .lineLimit(3)
                     
                     // Description (first page preview)
-                    Text(story.description)
+                    Text(story.description(for: languageManager.currentLanguage))
                         .font(.system(size: 17, weight: .regular))
                         .foregroundColor(.white.opacity(0.8))
                         .lineSpacing(6)
@@ -112,7 +113,7 @@ struct StoryDetailView: View {
                         HStack(spacing: 10) {
                             Image(systemName: "book.fill")
                                 .font(.system(size: 18))
-                            Text("Read")
+                            Text(languageManager.currentLanguage == .turkish ? "Oku" : "Read")
                                 .font(.system(size: 18, weight: .semibold))
                         }
                         .foregroundColor(.white)
@@ -130,7 +131,6 @@ struct StoryDetailView: View {
             }
         }
         .navigationBarHidden(true)
-        .swipeBack()  // Enable swipe-back gesture with visual indicator
     }
 }
 
@@ -138,5 +138,6 @@ struct StoryDetailView: View {
 #Preview {
     NavigationStack {
         StoryDetailView(story: Story.sampleStories[0])
+            .environmentObject(LanguageManager.shared)
     }
 }

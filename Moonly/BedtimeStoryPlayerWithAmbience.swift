@@ -13,6 +13,7 @@ import AVFoundation
 /// Production-ready bedtime story player that combines TTS with ambient sounds
 struct BedtimeStoryPlayerWithAmbience: View {
     let story: Story
+    let language: AppLanguage
     
     @StateObject private var speechManager = SpeechManager()
     @StateObject private var audioManager = BackgroundAudioManager()
@@ -37,7 +38,7 @@ struct BedtimeStoryPlayerWithAmbience: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
                         // Story title
-                        Text(story.title)
+                        Text(story.title(for: language))
                             .font(.system(size: 32, weight: .bold, design: .serif))
                             .foregroundColor(.white)
                         
@@ -52,7 +53,7 @@ struct BedtimeStoryPlayerWithAmbience: View {
                             .background(Color.white.opacity(0.2))
                         
                         // Story content
-                        Text(story.fullDescription)
+                        Text(story.fullDescription(for: language))
                             .font(.system(size: 18, design: .serif))
                             .foregroundColor(.white.opacity(0.85))
                             .lineSpacing(10)
@@ -76,7 +77,7 @@ struct BedtimeStoryPlayerWithAmbience: View {
             BackgroundAudioManager.enableBackgroundAudio()
             
             // Prepare speech content
-            await speechManager.prepareContent(text: story.fullDescription, language: .english)
+            await speechManager.prepareContent(text: story.fullDescription(for: language), language: language == .turkish ? .turkish : .english)
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             handleScenePhaseChange(newPhase)
@@ -557,7 +558,7 @@ struct AmbientSoundRow: View {
  
  🎯 USAGE:
  
- BedtimeStoryPlayerWithAmbience(story: myStory)
+ BedtimeStoryPlayerWithAmbience(story: myStory, language: .english)
  
  */
 
@@ -565,7 +566,7 @@ struct AmbientSoundRow: View {
 
 #Preview {
     if let story = Story.sampleStories.first {
-        BedtimeStoryPlayerWithAmbience(story: story)
+        BedtimeStoryPlayerWithAmbience(story: story, language: .english)
     } else {
         Text("No sample stories available")
     }

@@ -12,14 +12,23 @@ import Combine
 struct StoryAudioPlayerView: View {
     
     let story: Story
+    @ObservedObject var languageManager: LanguageManager
     
     @StateObject private var audioPlayer = AudioPlayerManager()
     @State private var isPlaying = false
+    @State private var currentLanguage: AppLanguage
+    
+    // Initializer
+    init(story: Story, languageManager: LanguageManager = .shared) {
+        self.story = story
+        self.languageManager = languageManager
+        _currentLanguage = State(initialValue: languageManager.currentLanguage)
+    }
     
     var body: some View {
         VStack(spacing: 20) {
             // Story Title
-            Text(story.title)
+            Text(story.title(for: currentLanguage))
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
@@ -63,7 +72,7 @@ struct StoryAudioPlayerView: View {
             // Story Pages
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    ForEach(story.chapters) { chapter in
+                    ForEach(story.chapters(for: currentLanguage)) { chapter in
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Chapter \(chapter.number): \(chapter.title)")
                                 .font(.headline)
@@ -80,6 +89,14 @@ struct StoryAudioPlayerView: View {
             }
         }
         .onAppear {
+            currentLanguage = languageManager.currentLanguage
+            loadAudio()
+        }
+        .onChange(of: languageManager.currentLanguage) { oldValue, newValue in
+            currentLanguage = newValue
+            // Dil değiştiğinde audio'yu yeniden yükle
+            audioPlayer.stop()
+            isPlaying = false
             loadAudio()
         }
         .onDisappear {
@@ -90,37 +107,38 @@ struct StoryAudioPlayerView: View {
     // MARK: - Methods
     
     private func loadAudio() {
-        // 1. Önce story'nin kendi audio dosyası var mı kontrol et (Bundle içinde)
-        if let audioFileName = story.audioFile {
-            // Dosya adından extension'ı ayır
-            let fileNameWithoutExt = (audioFileName as NSString).deletingPathExtension
-            let fileExtension = (audioFileName as NSString).pathExtension.isEmpty ? "mp3" : (audioFileName as NSString).pathExtension
-            
-            if let bundleURL = Bundle.main.url(forResource: fileNameWithoutExt, withExtension: fileExtension) {
-                print("✅ Bundle'dan audio yükleniyor: \(audioFileName)")
-                print("📂 URL: \(bundleURL.path)")
-                audioPlayer.load(url: bundleURL)
-                return
-            } else {
-                print("⚠️ Bundle'da dosya bulunamadı: \(fileNameWithoutExt).\(fileExtension)")
-                print("📁 Bundle path: \(Bundle.main.bundlePath)")
-            }
-        }
-        
-        // 2. Documents klasöründe TTS ile oluşturulmuş audio var mı kontrol et
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let audioFileName = "\(story.id).m4a"
-        let audioURL = documentsPath.appendingPathComponent(audioFileName)
-        
-        if FileManager.default.fileExists(atPath: audioURL.path) {
-            print("✅ Documents'tan TTS audio yükleniyor: \(audioFileName)")
-            audioPlayer.load(url: audioURL)
+        // Dile göre doğru audio dosyasını al
+        guard let audioFileName = story.audioFile(for: currentLanguage) else {
+            print("⚠️ Bu hikaye için \(currentLanguage.rawValue) dilinde audio dosyası yok")
             return
         }
         
-        print("⚠️ Hiçbir audio dosyası bulunamadı.")
-        print("   Bundle audio: \(story.audioFile ?? "yok")")
-        print("   TTS audio: \(audioFileName) (yok)")
+        // Dosya adından extension'ı ayır
+        let fileNameWithoutExt = (audioFileName as NSString).deletingPathExtension
+        let fileExtension = (audioFileName as NSString).pathExtension.isEmpty ? "mp3" : (audioFileName as NSString).pathExtension
+        
+        // Dil klasörü yolunu oluştur
+        let languageFolder = currentLanguage == .turkish ? "tr" : "en"
+        
+        // Bundle içinde dil klasöründe ara (Audio/tr/ veya Audio/en/)
+        if let bundleURL = Bundle.main.url(forResource: "Audio/\(languageFolder)/\(fileNameWithoutExt)", withExtension: fileExtension) {
+            print("✅ Bundle'dan audio yükleniyor: Audio/\(languageFolder)/\(audioFileName)")
+            print("📂 URL: \(bundleURL.path)")
+            audioPlayer.load(url: bundleURL)
+            return
+        }
+        
+        // Bundle'ın kök dizininde ara (backward compatibility)
+        if let bundleURL = Bundle.main.url(forResource: fileNameWithoutExt, withExtension: fileExtension) {
+            print("✅ Bundle kök dizininden audio yükleniyor: \(audioFileName)")
+            print("📂 URL: \(bundleURL.path)")
+            audioPlayer.load(url: bundleURL)
+            return
+        }
+        
+        print("❌ Audio dosyası bulunamadı:")
+        print("   - Bundle (dil klasörü): Audio/\(languageFolder)/\(fileNameWithoutExt).\(fileExtension)")
+        print("   - Bundle (kök): \(fileNameWithoutExt).\(fileExtension)")
     }
     
     private func togglePlayback() {

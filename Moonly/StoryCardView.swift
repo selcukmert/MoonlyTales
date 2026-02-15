@@ -9,59 +9,60 @@ import SwiftUI
 
 struct StoryCardView: View {
     let story: Story
+    let language: AppLanguage
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack {
-                // Icon container
-                ZStack {
-                    Circle()
-                        .fill(Color.white.opacity(0.1))
-                        .frame(width: 80, height: 80)
-                    
-                    Image(systemName: story.iconName)
-                        .font(.system(size: 35))
-                        .foregroundColor(.white)
-                }
-                
-                Spacer()
-                
-                // Read time badge
-                HStack(spacing: 4) {
-                    Image(systemName: "moon.fill")
-                        .font(.system(size: 10))
-                    Text("\(story.readTime) min read")
-                        .font(.system(size: 13, weight: .medium))
-                }
-                .foregroundColor(.white.opacity(0.6))
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    Capsule()
-                        .fill(Color.white.opacity(0.1))
+        ZStack(alignment: .bottomLeading) {
+            // Background Image
+            if let imageName = story.cardImageName {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 280)
+                    .clipped()
+            } else {
+                // Fallback gradient background
+                LinearGradient(
+                    colors: [
+                        Color(red: 0.2, green: 0.25, blue: 0.35),
+                        Color(red: 0.15, green: 0.18, blue: 0.25)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
                 )
+                .frame(height: 280)
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 24)
             
-            VStack(alignment: .leading, spacing: 8) {
-                Text(story.title)
-                    .font(.system(size: 28, weight: .bold, design: .serif))
+            // Gradient overlay for text readability
+            LinearGradient(
+                colors: [
+                    Color.black.opacity(0.0),
+                    Color.black.opacity(0.8)
+                ],
+                startPoint: .center,
+                endPoint: .bottom
+            )
+            
+            // Content - Only Title
+            VStack(alignment: .leading, spacing: 0) {
+                Text(story.title(for: language))
+                    .font(.system(size: 19, weight: .bold, design: .serif))
                     .foregroundColor(.white)
-                
-                Text(story.description)
-                    .font(.system(size: 15))
-                    .foregroundColor(.white.opacity(0.6))
-                    .lineLimit(2)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.8)
+                    .shadow(color: .black.opacity(0.6), radius: 6, x: 0, y: 2)
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 20)
-            .padding(.bottom, 24)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 16)
         }
-        .background(
-            RoundedRectangle(cornerRadius: 24)
-                .fill(Color(white: 0.15, opacity: 0.5))
+        .frame(height: 280)
+        .contentShape(Rectangle())  // Make entire card tappable
+        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.white.opacity(0.15), lineWidth: 1)
         )
+        .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
     }
 }
 
@@ -69,7 +70,7 @@ struct StoryCardView: View {
     ZStack {
         Color.black.ignoresSafeArea()
         
-        StoryCardView(story: Story.sampleStories[0])
+        StoryCardView(story: Story.sampleStories[0], language: .english)
             .padding()
     }
 }

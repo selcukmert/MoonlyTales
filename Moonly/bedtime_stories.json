@@ -3,7 +3,10 @@
     {
       "id": "story_001",
       "title_en": "Moonlight Path",
-      "audio_file": "little_bunny.mp3",
+      "title_tr": "Ay Işığı Yolu",
+      "card_image": "little_bunny",
+      "audio_file_en": "little_bunny.mp3",
+      "audio_file_tr": "little_bunny_tr.mp3",
       "pages_en": [
         "Little bunny Blue had played in the soft grass all day, hopping between flowers and chasing tiny shadows.",
         "When evening arrived, his legs felt tired and he knew it was time to return home.",
@@ -12,13 +15,24 @@
         "Blue followed the moonlight calmly, listening to leaves whispering softly in the breeze.",
         "The stars twinkled above him like quiet friends watching over his journey.",
         "When he reached his burrow, Blue felt safe and warm, pulled up his little blanket, and drifted into peaceful sleep."
+      ],
+      "pages_tr": [
+        "Küçük tavşan Blue bütün gün yumuşak çimenlerde oynamış, çiçeklerin arasında zıplamış ve minik gölgeleri kovalamıştı.",
+        "Akşam olduğunda bacaklarında yorgunluk hissetti ve artık eve dönme vaktinin geldiğini anladı.",
+        "Kararan gökyüzünde ay yavaşça belirdi ve yeryüzüne nazik, gümüşi bir ışık yaydı.",
+        "Sanki ay Blue'ya yolu nazikçe gösteriyormuş gibi, parlayan bir yol gibi görünüyordu.",
+        "Blue, meltemle birlikte hafifçe fısıldayan yaprakları dinleyerek ay ışığını sakince takip etti.",
+        "Yıldızlar, yolculuğunu izleyen sessiz arkadaşlar gibi tepesinde parlıyordu.",
+        "Yuvasına ulaştığında Blue kendini güvende ve sıcak hissetti, küçük battaniyesini üzerine çekti ve huzurlu bir uykuya daldı."
       ]
     },
-
     {
       "id": "story_002",
       "title_en": "Pami the Sleepy Cloud",
-      "audio_file": "pami.mp3",
+      "title_tr": "Uykulu Bulut Pami",
+      "card_image": "pami",
+      "audio_file_en": "pami.mp3",
+      "audio_file_tr": "pami_tr.mp3",
       "pages_en": [
         "Pami the cloud had floated across the sky all day, watching oceans, forests, and cities far below.",
         "As evening came, the sky turned deep blue and everything began to slow down.",
@@ -27,13 +41,24 @@
         "Little stars gathered around Pami, shining quietly like tiny night lights.",
         "The sky felt calm, silent, and safe.",
         "Pami imagined closing his eyes and slowly drifted into a sweet and peaceful sleep."
+      ],
+      "pages_tr": [
+        "Bulut Pami bütün gün gökyüzünde süzülmüş, çok aşağılardaki okyanusları, ormanları ve şehirleri izlemişti.",
+        "Akşam olunca gökyüzü koyu maviye döndü ve her şey yavaşlamaya başladı.",
+        "Pami kendini pamuktan yapılmış bir yastık gibi daha yumuşak ve daha ağır hissetmeye başladı.",
+        "Ay yakınına süzüldü ve nazikçe fısıldadı: \"Bugün için yeterince yolculuk yaptın. Artık dinlenme vakti.\"",
+        "Küçük yıldızlar Pami'nin etrafında toplandı, minik gece lambaları gibi sessizce parladılar.",
+        "Gökyüzü sakin, sessiz ve güvenli hissettiriyordu.",
+        "Pami gözlerini kapattığını hayal etti ve yavaşça tatlı, huzurlu bir uykuya daldı."
       ]
     },
-
     {
       "id": "story_003",
       "title_en": "Little Star's Wish",
-      "audio_file": "lila.mp3",
+      "title_tr": "Küçük Yıldızın Dileği",
+      "card_image": "lila",
+      "audio_file_en": "lila.mp3",
+      "audio_file_tr": "lila_tr.mp3",
       "pages_en": [
         "Little star Lila had just begun to shine in the sky and felt unsure about her tiny light.",
         "She looked at the other stars and noticed how calm and confident they seemed.",
@@ -42,12 +67,24 @@
         "The sky seemed to glow softer, as if her wish had filled it with warmth.",
         "Lila felt a calm happiness inside her small shining heart.",
         "Feeling safe at last, she relaxed and slowly drifted into a quiet, gentle sleep."
+      ],
+      "pages_tr": [
+        "Küçük yıldız Lila gökyüzünde yeni parlamaya başlamıştı ve minik ışığı konusunda kendini pek emin hissetmiyordu.",
+        "Diğer yıldızlara baktı ve ne kadar sakin ve kendinden emin göründüklerini fark etti.",
+        "Ay, Lila'yı fark etti ve nazikçe konuştu: \"Işığın şimdiden çok güzel. Endişelenmene gerek yok.\"",
+        "Lila gözlerini kapattı ve bu gece tüm çocukların kendilerini güvende ve huzurlu hissetmeleri için nazik bir dilek tuttu.",
+        "Gökyüzü, sanki dileği orayı sıcaklıkla doldurmuş gibi daha yumuşak parlıyor gibiydi.",
+        "Lila, küçük parlayan kalbinde sakin bir mutluluk hissetti.",
+        "Sonunda güvende hissederek rahatladı ve yavaşça sessiz, nazik bir uykuya daldı."
       ]
     },
-
     {
       "id": "story_004",
       "title_en": "Nino the Teddy",
+      "title_tr": "Oyuncak Ayı Nino",
+      "card_image": "nino",
+      "audio_file_en": "nino.mp3",
+      "audio_file_tr": "nino_tr.mp3",
       "pages_en": [
         "Nino the teddy had spent the whole day beside the child, sharing games, laughter, and quiet moments.",
         "When night arrived, the room became calm and the lights turned soft and dim.",
@@ -56,12 +93,24 @@
         "The child hugged Nino tightly and felt their breathing become slower and calmer.",
         "The blanket felt warm and cozy around them both.",
         "With peaceful hearts, the child and Nino fell asleep together."
+      ],
+      "pages_tr": [
+        "Oyuncak ayı Nino bütün günü çocuğun yanında oyunları, kahkahaları ve sessiz anları paylaşarak geçirmişti.",
+        "Gece geldiğinde oda sakinleşti ve ışıklar yumuşayıp loşlaştı.",
+        "Çocuk yatağına girdi ve Nino'yu nazikçe yanına çekti.",
+        "Nino sözcükler olmadan sanki şöyle diyordu: \"Buradayım. Güvendesin.\"",
+        "Çocuk Nino'ya sıkıca sarıldı ve nefes alışverişinin daha yavaş ve daha sakin olduğunu hissetti.",
+        "Battaniye her ikisinin etrafında da sıcak ve konforlu hissettiriyordu.",
+        "Huzurlu kalplerle, çocuk ve Nino birlikte uykuya daldılar."
       ]
     },
-
     {
       "id": "story_005",
       "title_en": "Mia the Little Cat",
+      "title_tr": "Küçük Kedi Mia",
+      "card_image": "mia",
+      "audio_file_en": "mia.mp3",
+      "audio_file_tr": "mia_tr.mp3",
       "pages_en": [
         "Mia the little cat sat quietly by the window, watching the bright moon in the night sky.",
         "Soft moonlight gently touched her fur and made everything feel calm and still.",
@@ -70,12 +119,24 @@
         "Her tail wrapped gently around her paws as she grew sleepier.",
         "Her eyes blinked slowly, then closed completely.",
         "Mia felt safe, peaceful, and soon drifted into a deep, gentle sleep."
+      ],
+      "pages_tr": [
+        "Küçük kedi Mia pencerenin kenarında sessizce oturmuş, gece gökyüzündeki parlak ayı izliyordu.",
+        "Yumuşak ay ışığı tüylerine nazikçe dokunuyor ve her şeyin sakin ve dingin hissettirmesini sağlıyordu.",
+        "Mia yumuşakça mırlamaya başladı ve bu ses sıcak ve rahatlatıcı hissettiriyordu.",
+        "Battaniyeye doğru yavaşça yürüdü ve küçük, sıcacık bir top gibi kıvrıldı.",
+        "Uykusu geldikçe kuyruğu patilerinin etrafına nazikçe dolandı.",
+        "Gözleri yavaşça kırpıştı ve sonra tamamen kapandı.",
+        "Mia kendini güvende, huzurlu hissetti ve kısa süre sonra derin, nazik bir uykuya daldı."
       ]
     },
-
     {
       "id": "story_006",
       "title_en": "The Sleep Train",
+      "title_tr": "Uyku Treni",
+      "card_image": "sleep_train",
+      "audio_file_en": "sleep_train.mp3",
+      "audio_file_tr": "sleep_train_tr.mp3",
       "pages_en": [
         "The child lay in bed and closed their eyes while the room stayed quiet and calm.",
         "In their imagination, they heard a soft, distant train sound drifting through the night.",
@@ -84,340 +145,510 @@
         "The door opened quietly, as if saying, \"You can rest now.\"",
         "The child took a slow, deep breath and imagined climbing aboard.",
         "As the train moved smoothly through the sky, everything felt peaceful, and the child drifted into sleep."
+      ],
+      "pages_tr": [
+        "Oda sessiz ve sakin kalırken, çocuk yatağına uzandı ve gözlerini kapattı.",
+        "Hayalinde, gecenin içinde süzülen yumuşak ve uzak bir tren sesi duydu.",
+        "Bu sadece onlar için gelen, nazik ve yavaş bir uyku treniydi.",
+        "Tren vagonları kabarık bulutlardan yapılmıştı ve pencerelerinden sıcak yıldız ışıkları parlıyordu.",
+        "Kapı sessizce açıldı, sanki \"Artık dinlenebilirsin\" der gibiydi.",
+        "Çocuk yavaş ve derin bir nefes aldı ve trene bindiğini hayal etti.",
+        "Tren gökyüzünde pürüzsüzce ilerlerken her şey huzurlu hissettirdi ve çocuk uykuya daldı."
       ]
     },
     {
-          "id": "story_007",
-          "title_en": "The Calm Sea",
-          "pages_en": [
-            "A little fish named Lumo had been swimming all day among colorful corals.",
-            "When evening arrived, the water grew darker and the sea became very quiet.",
-            "Lumo looked up and saw moonlight shining softly through the water.",
-            "The light made everything look silver and gentle, like a peaceful dream.",
-            "Lumo swam slowly back to the coral reef where he felt safe.",
-            "He curled his tiny fins close to his body and took a calm breath.",
-            "With the soft rhythm of the ocean around him, Lumo fell asleep."
-          ]
-        },
-
-        {
-          "id": "story_008",
-          "title_en": "The Forest Lullaby",
-          "pages_en": [
-            "In the forest, the sounds of the day slowly began to fade.",
-            "Leaves moved gently in the breeze, whispering soft and quiet sounds.",
-            "A small hedgehog named Piko walked back to his cozy nest.",
-            "He carefully arranged dry leaves to make his bed extra comfortable.",
-            "Piko looked up at the sky and saw the stars glowing calmly above.",
-            "Feeling safe and warm, he tucked his nose under his paws.",
-            "The forest hummed a gentle lullaby as Piko fell asleep."
-          ]
-        },
-
-        {
-          "id": "story_009",
-          "title_en": "Rain on the Window",
-          "pages_en": [
-            "Tiny raindrops began tapping softly on the window: tap, tap, tap.",
-            "Inside the room, everything felt warm, quiet, and peaceful.",
-            "The child pulled the blanket closer and rested their head on the pillow.",
-            "The sound of the rain felt like gentle music meant only for listening.",
-            "Each drop seemed to whisper, “Rest now, everything is okay.”",
-            "The child’s breathing slowed and their body relaxed deeply.",
-            "With the rain singing softly outside, the child drifted into sleep."
-          ]
-        },
-
-        {
-          "id": "story_010",
-          "title_en": "The Little Lantern",
-          "pages_en": [
-            "A small lantern glowed softly in the corner of the room.",
-            "Its light was not bright, but gentle and warm like a tiny star.",
-            "The child looked at the lantern and felt safe and calm.",
-            "Toys were in their places, and the room felt quiet and peaceful.",
-            "The child climbed into bed and pulled up the blanket slowly.",
-            "The lantern seemed to whisper, “Everything is safe now.”",
-            "With a calm heart, the child closed their eyes and fell asleep."
-          ]
-        },
-        {
-              "id": "story_011",
-              "title_en": "The Blanket Castle",
-              "pages_en": [
-                "The child gently lifted the blanket and built a small, cozy castle on the bed.",
-                "Inside the castle, everything felt quiet, warm, and safe like a tiny secret world.",
-                "A soft night light glowed gently, filling the space with calm light.",
-                "The child whispered, \"This is my peaceful place,\" and smiled softly.",
-                "They lay down slowly and pulled the blanket close.",
-                "The castle felt like a hug around them.",
-                "With a calm heart, the child drifted into sleep."
-              ]
-            },
-
-            {
-              "id": "story_012",
-              "title_en": "Counting the Stars",
-              "pages_en": [
-                "The child stood by the window and looked up at the night sky.",
-                "Tiny stars shimmered softly like little dots of light.",
-                "The child began to count them slowly, one by one.",
-                "With each number, their breathing became slower and calmer.",
-                "The stars seemed to glow even softer as the child relaxed.",
-                "Feeling sleepy, the child returned to bed.",
-                "Wrapped in calm, they closed their eyes and fell asleep."
-              ]
-            },
-
-            {
-              "id": "story_013",
-              "title_en": "Pilo the Little Penguin",
-              "pages_en": [
-                "Pilo the little penguin had spent the day sliding happily across the snow.",
-                "As evening arrived, the cold air felt softer and the sky turned dark blue.",
-                "Moonlight sparkled across the icy ground like tiny diamonds.",
-                "Pilo waddled slowly back toward his warm nest.",
-                "Inside, he fluffed his feathers and felt cozy.",
-                "He tucked his wings close to his body and took a gentle breath.",
-                "Safe and warm, Pilo drifted into peaceful sleep."
-              ]
-            },
-
-            {
-              "id": "story_014",
-              "title_en": "A Safe Night",
-              "pages_en": [
-                "The room became quieter as the lights dimmed and bedtime arrived.",
-                "The night lamp glowed softly, making the shadows gentle and friendly.",
-                "The child looked around and saw everything in its place.",
-                "Toys rested peacefully, and the room felt calm.",
-                "The child whispered, \"Everything feels safe.\"",
-                "They pulled the blanket close and snuggled into the pillow.",
-                "With comfort all around, the child fell asleep."
-              ]
-            },
-
-            {
-              "id": "story_015",
-              "title_en": "The Sleeping Garden",
-              "pages_en": [
-                "In the garden, flowers slowly closed their petals as night arrived.",
-                "A small butterfly named Loni rested gently on a leaf.",
-                "The air felt cool and calm, filled with quiet peace.",
-                "Crickets sang softly in the distance, like a gentle song.",
-                "Loni folded her wings carefully around her body.",
-                "The garden seemed to breathe slowly and quietly.",
-                "Surrounded by calm, Loni fell into a soft sleep."
-              ]
-            },
-
-            {
-              "id": "story_016",
-              "title_en": "The Owl's Watch",
-              "pages_en": [
-                "An owl sat quietly on a branch under the glowing moon.",
-                "He watched the forest gently, making sure everything felt calm and safe.",
-                "The trees stood still, and the wind moved softly between them.",
-                "Fireflies blinked like tiny lights in the darkness.",
-                "The owl felt peaceful knowing the forest was resting.",
-                "He slowly tucked his head into his feathers.",
-                "With the night calm around him, the owl fell asleep."
-              ]
-            },
-
-            {
-              "id": "story_017",
-              "title_en": "The Boat on the Lake",
-              "pages_en": [
-                "A small wooden boat floated gently on a quiet lake.",
-                "The water was so still it reflected the moon like a mirror.",
-                "Soft ripples moved slowly around the boat.",
-                "Everything felt calm, as if the world had paused for rest.",
-                "The boat drifted closer to the shore without any rush.",
-                "It rested peacefully near the edge of the water.",
-                "Surrounded by silence, the boat felt as though it had fallen asleep."
-              ]
-            },
-
-            {
-              "id": "story_018",
-              "title_en": "The Curtain Dance",
-              "pages_en": [
-                "A gentle breeze moved the curtain back and forth.",
-                "The slow movement felt like a soft, quiet dance.",
-                "The child watched the curtain with sleepy eyes.",
-                "Each movement felt slower than the last.",
-                "The room felt calm and comfortable.",
-                "The child pulled the blanket up gently.",
-                "As the curtain swayed softly, the child drifted to sleep."
-              ]
-            },
-
-            {
-              "id": "story_019",
-              "title_en": "The Breathing Balloon",
-              "pages_en": [
-                "The child imagined their breath as a soft floating balloon.",
-                "When breathing in, the balloon slowly grew larger.",
-                "When breathing out, the balloon became smaller again.",
-                "The balloon floated gently through a dark blue sky filled with stars.",
-                "Each breath made the child feel calmer and lighter.",
-                "The body relaxed more with every gentle breath.",
-                "Soon, the balloon drifted away and the child fell asleep."
-              ]
-            },
-
-            {
-              "id": "story_020",
-              "title_en": "The Warm Bed",
-              "pages_en": [
-                "The bed felt warm and cozy beneath the soft blanket.",
-                "The child settled into the pillow and felt their body relax.",
-                "Moonlight gently touched the floor beside the bed.",
-                "The room felt quiet, safe, and peaceful.",
-                "The child thought about the nice moments from the day.",
-                "With a calm smile, they whispered, \"Tomorrow will be another good day.\"",
-                "Wrapped in comfort, the child drifted into deep sleep."
-              ]
-            },
-            {
-                  "id": "story_021",
-                  "title_en": "The Sleepy Kitten",
-                  "pages_en": [
-                    "A tiny kitten yawned softly after a long day of exploring the house.",
-                    "Her paws felt warm as she walked slowly across the soft carpet.",
-                    "She found her favorite spot beside a pillow and curled up gently.",
-                    "The room was quiet, filled with calm and comfort.",
-                    "The kitten listened to the steady rhythm of breathing nearby.",
-                    "Her eyes closed slowly, one blink at a time.",
-                    "Soon, she was sleeping peacefully in her cozy little nest."
-                  ]
-                },
-
-                {
-                  "id": "story_022",
-                  "title_en": "The Quiet Snow",
-                  "pages_en": [
-                    "Outside the window, tiny snowflakes floated softly through the night.",
-                    "The world looked calm and white, as if everything had been gently covered.",
-                    "No loud sounds could be heard, only peaceful silence.",
-                    "The child watched the snow for a moment, feeling calm inside.",
-                    "Each snowflake fell slowly, without hurry.",
-                    "The child climbed into bed and felt warm under the blanket.",
-                    "With the quiet snow outside, sleep came easily."
-                  ]
-                },
-
-                {
-                  "id": "story_023",
-                  "title_en": "The Little Fox's Nest",
-                  "pages_en": [
-                    "A little fox named Liro explored the forest all day long.",
-                    "As the sky darkened, he felt ready to return to his nest.",
-                    "The trees stood tall and calm under the moonlight.",
-                    "Liro padded softly through the grass, careful and quiet.",
-                    "Inside his nest, it felt warm and safe.",
-                    "He curled his tail around his body and relaxed deeply.",
-                    "The forest stayed silent as Liro fell asleep."
-                  ]
-                },
-
-                {
-                  "id": "story_024",
-                  "title_en": "The Soft Pillow",
-                  "pages_en": [
-                    "The pillow felt soft and gentle beneath the child’s head.",
-                    "Each breath became slower and deeper than before.",
-                    "The room stayed quiet, filled with peaceful stillness.",
-                    "The blanket rested lightly over the child’s body.",
-                    "Nothing needed to be done anymore, only rest.",
-                    "The child’s thoughts became slower and softer.",
-                    "With comfort all around, sleep arrived gently."
-                  ]
-                },
-
-                {
-                  "id": "story_025",
-                  "title_en": "The Firefly Lights",
-                  "pages_en": [
-                    "Tiny fireflies glowed softly in the evening garden.",
-                    "Their lights blinked slowly like little stars near the ground.",
-                    "A child watched them quietly from the window.",
-                    "Each gentle glow felt calm and magical.",
-                    "The garden air felt cool and peaceful.",
-                    "The child said good night to the tiny lights.",
-                    "With a calm heart, the child drifted into sleep."
-                  ]
-                },
-
-                {
-                  "id": "story_026",
-                  "title_en": "The Sleepy Puppy",
-                  "pages_en": [
-                    "A small puppy played happily all day with a soft ball.",
-                    "As evening came, his tail wagged more slowly.",
-                    "He walked to his cozy bed and turned around once.",
-                    "The bed felt warm and familiar beneath him.",
-                    "The puppy let out a quiet sigh of comfort.",
-                    "His eyes closed slowly while he listened to the calm room.",
-                    "Soon, he was dreaming peacefully."
-                  ]
-                },
-
-                {
-                  "id": "story_027",
-                  "title_en": "The Gentle Wind",
-                  "pages_en": [
-                    "A gentle wind moved quietly through the open window.",
-                    "It touched the curtains and made them sway softly.",
-                    "The room felt cool, fresh, and calm.",
-                    "The child listened to the soft sound of the moving air.",
-                    "Each breath felt easier and slower than before.",
-                    "The night felt kind and safe.",
-                    "With the gentle wind nearby, the child fell asleep."
-                  ]
-                },
-
-                {
-                  "id": "story_028",
-                  "title_en": "The Moon Boat",
-                  "pages_en": [
-                    "The child imagined a small boat floating across the moon.",
-                    "The boat moved slowly through a sky filled with stars.",
-                    "Everything felt quiet, like a dream without noise.",
-                    "The child lay back inside the boat and felt safe.",
-                    "Soft starlight glowed all around.",
-                    "The boat continued gently without any rush.",
-                    "With the motion so calm, the child drifted into sleep."
-                  ]
-                },
-
-                {
-                  "id": "story_029",
-                  "title_en": "The Cozy Cave",
-                  "pages_en": [
-                    "A little bear found a cozy cave at the end of the day.",
-                    "Inside, the air felt warm and still.",
-                    "The bear gathered soft leaves to make a comfortable bed.",
-                    "Outside, the night stayed calm and quiet.",
-                    "The cave felt like a gentle hug around him.",
-                    "He closed his eyes slowly and relaxed deeply.",
-                    "Soon, the bear was sleeping peacefully."
-                  ]
-                },
-
-                {
-                  "id": "story_030",
-                  "title_en": "The Quiet Night Promise",
-                  "pages_en": [
-                    "The night felt calm, wrapping the world in gentle silence.",
-                    "The child listened to the quiet and felt safe inside the room.",
-                    "The stars outside seemed to shine only for peaceful dreams.",
-                    "The blanket felt warm and comforting on the body.",
-                    "Nothing needed attention anymore; everything could wait until morning.",
-                    "The child whispered softly, \"Good night, world.\"",
-                    "With a peaceful heart, the child drifted into deep sleep."
-                  ]
-                }
+      "id": "story_007",
+      "title_en": "The Calm Sea",
+      "title_tr": "Sakin Deniz",
+      "card_image": "lumo",
+      "audio_file_en": "lumo.mp3",
+      "audio_file_tr": "lumo_tr.mp3",
+      "pages_en": [
+        "A little fish named Lumo had been swimming all day among colorful corals.",
+        "When evening arrived, the water grew darker and the sea became very quiet.",
+        "Lumo looked up and saw moonlight shining softly through the water.",
+        "The light made everything look silver and gentle, like a peaceful dream.",
+        "Lumo swam slowly back to the coral reef where he felt safe.",
+        "He curled his tiny fins close to his body and took a calm breath.",
+        "With the soft rhythm of the ocean around him, Lumo fell asleep."
+      ],
+      "pages_tr": [
+        "Lumo adındaki küçük bir balık bütün gün renkli mercanlar arasında yüzmüştü.",
+        "Akşam olduğunda su karardı ve deniz çok sessizleşti.",
+        "Lumo yukarı baktı ve suyun içinden yumuşakça süzülen ay ışığını gördü.",
+        "Işık, her şeyi gümüşi ve nazik gösteriyordu, tıpkı huzurlu bir rüya gibi.",
+        "Lumo, kendini güvende hissettiği mercan resifine doğru yavaşça yüzdü.",
+        "Minik yüzgeçlerini vücuduna yakınlaştırdı ve sakin bir nefes aldı.",
+        "Etrafındaki okyanusun yumuşak ritmiyle birlikte Lumo uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_008",
+      "title_en": "The Forest Lullaby",
+      "title_tr": "Orman Ninnisi",
+      "card_image": "piko",
+      "audio_file_en": "piko.mp3",
+      "audio_file_tr": "piko_tr.mp3",
+      "pages_en": [
+        "In the forest, the sounds of the day slowly began to fade.",
+        "Leaves moved gently in the breeze, whispering soft and quiet sounds.",
+        "A small hedgehog named Piko walked back to his cozy nest.",
+        "He carefully arranged dry leaves to make his bed extra comfortable.",
+        "Piko looked up at the sky and saw the stars glowing calmly above.",
+        "Feeling safe and warm, he tucked his nose under his paws.",
+        "The forest hummed a gentle lullaby as Piko fell asleep."
+      ],
+      "pages_tr": [
+        "Ormanda günün sesleri yavaş yavaş kaybolmaya başladı.",
+        "Yapraklar meltemde nazikçe hareket ediyor, yumuşak ve sessiz sesler fısıldıyordu.",
+        "Piko adındaki küçük bir kirpi, sıcacık yuvasına doğru yürüdü.",
+        "Yatağını ekstra konforlu hale getirmek için kuru yaprakları dikkatlice düzenledi.",
+        "Piko gökyüzüne baktı ve yukarıda sakince parlayan yıldızları gördü.",
+        "Güvende ve sıcak hissederek burnunu patilerinin altına gizledi.",
+        "Piko uykuya dalarken orman ona nazik bir ninni mırıldandı."
+      ]
+    },
+    {
+      "id": "story_009",
+      "title_en": "Rain on the Window",
+      "title_tr": "Penceredeki Yağmur",
+      "card_image": "rain_on",
+      "audio_file_en": "rain_on.mp3",
+      "audio_file_tr": "rain_on_tr.mp3",
+      "pages_en": [
+        "Tiny raindrops began tapping softly on the window: tap, tap, tap.",
+        "Inside the room, everything felt warm, quiet, and peaceful.",
+        "The child pulled the blanket closer and rested their head on the pillow.",
+        "The sound of the rain felt like gentle music meant only for listening.",
+        "Each drop seemed to whisper, “Rest now, everything is okay.”",
+        "The child’s breathing slowed and their body relaxed deeply.",
+        "With the rain singing softly outside, the child drifted into sleep."
+      ],
+      "pages_tr": [
+        "Minik yağmur damlaları pencereye yumuşakça vurmaya başladı: tıp, tıp, tıp.",
+        "Odanın içinde her şey sıcak, sessiz ve huzurlu hissettiriyordu.",
+        "Çocuk battaniyeyi daha yakına çekti ve başını yastığa yasladı.",
+        "Yağmurun sesi sadece dinlemek için yaratılmış nazik bir müzik gibi geliyordu.",
+        "Her bir damla sanki şöyle fısıldıyordu: \"Dinlen artık, her şey yolunda.\"",
+        "Çocuğun nefesi yavaşladı ve vücudu derinlemesine rahatladı.",
+        "Dışarıda yağmur yumuşakça şarkı söylerken, çocuk uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_010",
+      "title_en": "The Little Lantern",
+      "title_tr": "Küçük Fener",
+      "card_image": "the_little_lantern",
+      "audio_file_en": "the_little_lantern.mp3",
+      "audio_file_tr": "the_little_lantern_tr.mp3",
+      "pages_en": [
+        "A small lantern glowed softly in the corner of the room.",
+        "Its light was not bright, but gentle and warm like a tiny star.",
+        "The child looked at the lantern and felt safe and calm.",
+        "Toys were in their places, and the room felt quiet and peaceful.",
+        "The child climbed into bed and pulled up the blanket slowly.",
+        "The lantern seemed to whisper, “Everything is safe now.”",
+        "With a calm heart, the child closed their eyes and fell asleep."
+      ],
+      "pages_tr": [
+        "Odanın köşesinde küçük bir fener yumuşakça parlıyordu.",
+        "Işığı parlak değildi, ama minik bir yıldız gibi nazik ve sıcaktı.",
+        "Çocuk fenere baktı ve kendini güvende ve sakin hissetti.",
+        "Oyuncaklar yerli yerindeydi ve oda sessiz ve huzurlu hissettiriyordu.",
+        "Çocuk yatağına girdi ve battaniyeyi yavaşça üzerine çekti.",
+        "Fener sanki şöyle fısıldıyordu: \"Şimdi her şey güvende.\"",
+        "Sakin bir kalple çocuk gözlerini kapattı ve uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_011",
+      "title_en": "The Blanket Castle",
+      "title_tr": "Battaniye Kalesi",
+      "card_image": "the_blanket_castle",
+      "audio_file_en": "the_blanket_castle.mp3",
+      "audio_file_tr": "the_blanket_castle_tr.mp3",
+      "pages_en": [
+        "The child gently lifted the blanket and built a small, cozy castle on the bed.",
+        "Inside the castle, everything felt quiet, warm, and safe like a tiny secret world.",
+        "A soft night light glowed gently, filling the space with calm light.",
+        "The child whispered, \"This is my peaceful place,\" and smiled softly.",
+        "They lay down slowly and pulled the blanket close.",
+        "The castle felt like a hug around them.",
+        "With a calm heart, the child drifted into sleep."
+      ],
+      "pages_tr": [
+        "Çocuk battaniyeyi nazikçe kaldırdı ve yatağın üzerinde küçük, sıcacık bir kale inşa etti.",
+        "Kalenin içi; minik, gizli bir dünya gibi sessiz, sıcak ve güvenli hissettiriyordu.",
+        "Yumuşak bir gece lambası nazikçe parlıyor, içeriyi sakin bir ışıkla dolduruyordu.",
+        "Çocuk, 'Burası benim huzurlu yerim,' diye fısıldadı ve usulca gülümsedi.",
+        "Yavaşça uzandı ve battaniyeyi iyice kendine çekti.",
+        "Kale, sanki ona sarılıyormuş gibi hissettiriyordu.",
+        "Sakin bir kalple, çocuk uykunun kollarına bıraktı kendini."
+      ]
+    },
+    {
+      "id": "story_012",
+      "title_en": "Counting the Stars",
+      "title_tr": "Yıldızları Saymak",
+      "card_image": "counting_stars",
+      "audio_file_en": "counting_stars.mp3",
+      "audio_file_tr": "counting_stars_tr.mp3",
+      "pages_en": [
+        "The child stood by the window and looked up at the night sky.",
+        "Tiny stars shimmered softly like little dots of light.",
+        "The child began to count them slowly, one by one.",
+        "With each number, their breathing became slower and calmer.",
+        "The stars seemed to glow even softer as the child relaxed.",
+        "Feeling sleepy, the child returned to bed.",
+        "Wrapped in calm, they closed their eyes and fell asleep."
+      ],
+      "pages_tr": [
+        "Çocuk pencerenin kenarında durdu ve gece gökyüzüne baktı.",
+        "Minik yıldızlar, küçük ışık noktaları gibi yumuşakça parlıyordu.",
+        "Çocuk onları yavaşça, birer birer saymaya başladı.",
+        "Söylediği her sayıyla birlikte, nefes alışverişi daha yavaş ve daha sakin bir hal aldı.",
+        "Çocuk rahatladıkça, yıldızlar sanki daha da yumuşak bir ışıkla parlıyordu.",
+        "Uykusunun geldiğini hissederek yatağına geri döndü.",
+        "Huzurla sarmalanmış bir halde, gözlerini kapattı ve uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_013",
+      "title_en": "Pilo the Little Penguin",
+      "title_tr": "Küçük Penguen Pilo",
+      "card_image": "pilo",
+      "audio_file_en": "pilo.mp3",
+      "audio_file_tr": "pilo_tr.mp3",
+      "pages_en": [
+        "Pilo the little penguin had spent the day sliding happily across the snow.",
+        "As evening arrived, the cold air felt softer and the sky turned dark blue.",
+        "Moonlight sparkled across the icy ground like tiny diamonds.",
+        "Pilo waddled slowly back toward his warm nest.",
+        "Inside, he fluffed his feathers and felt cozy.",
+        "He tucked his wings close to his body and took a gentle breath.",
+        "Safe and warm, Pilo drifted into peaceful sleep."
+      ],
+      "pages_tr": [
+        "Küçük penguen Pilo, bütün günü karın üzerinde mutlulukla kayarak geçirmişti.",
+        "Akşam olduğunda, soğuk hava daha yumuşak hissettirmeye başladı ve gökyüzü koyu maviye döndü.",
+        "Ay ışığı, buzlu zeminde minik elmaslar gibi parıldıyordu.",
+        "Pilo, yavaş adımlarla paytak paytak yürüyerek sıcak yuvasına doğru döndü.",
+        "İçeri girdiğinde tüylerini kabarttı ve kendini sıcacık hissetti.",
+        "Kanatlarını vücuduna yaklaştırdı ve nazik bir nefes aldı.",
+        "Güvende ve sıcak bir halde, Pilo huzurlu bir uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_014",
+      "title_en": "A Safe Night",
+      "title_tr": "Güvenli Bir Gece",
+      "card_image": "safe_night",
+      "audio_file_en": "safe_night.mp3",
+      "audio_file_tr": "safe_night_tr.mp3",
+      "pages_en": [
+        "The room became quieter as the lights dimmed and bedtime arrived.",
+        "The night lamp glowed softly, making the shadows gentle and friendly.",
+        "The child looked around and saw everything in its place.",
+        "Toys rested peacefully, and the room felt calm.",
+        "The child whispered, \"Everything feels safe.\"",
+        "They pulled the blanket close and snuggled into the pillow.",
+        "With comfort all around, the child fell asleep."
+      ],
+      "pages_tr": [
+        "Işıklar loşlaştıkça ve uyku vakti geldikçe oda daha da sessizleşti.",
+        "Gece lambası yumuşakça parlıyor, gölgeleri nazik ve dost canlısı gösteriyordu.",
+        "Çocuk etrafına baktı ve her şeyin yerli yerinde olduğunu gördü.",
+        "Oyuncaklar huzur içinde dinleniyordu ve oda sakin hissettiriyordu.",
+        "Çocuk, 'Her şey güvende hissediliyor,' diye fısıldadı.",
+        "Battaniyeyi iyice çekti ve yastığına sokuldu.",
+        "Dört bir yanını saran o konforla, çocuk uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_015",
+      "title_en": "The Sleeping Garden",
+      "title_tr": "Uyuyan Bahçe",
+      "card_image": "loni",
+      "audio_file_en": "loni.mp3",
+      "audio_file_tr": "loni_tr.mp3",
+      "pages_en": [
+        "In the garden, flowers slowly closed their petals as night arrived.",
+        "A small butterfly named Loni rested gently on a leaf.",
+        "The air felt cool and calm, filled with quiet peace.",
+        "Crickets sang softly in the distance, like a gentle song.",
+        "Loni folded her wings carefully around her body.",
+        "The garden seemed to breathe slowly and quietly.",
+        "Surrounded by calm, Loni fell into a soft sleep."
+      ],
+      "pages_tr": [
+        "Bahçede, gece geldiğinde çiçekler taç yapraklarını yavaşça kapattılar.",
+        "Loni adındaki küçük bir kelebek, bir yaprağın üzerine nazikçe yerleşti.",
+        "Hava; serin, sakin ve sessiz bir huzurla doluydu.",
+        "Cırcır böcekleri uzaklarda nazik bir şarkı gibi yumuşakça şakıyordu.",
+        "Loni, kanatlarını vücudunun etrafına dikkatlice katladı.",
+        "Bahçe, sanki yavaş ve sessizce nefes alıyor gibiydi.",
+        "Sakinlikle çevrelenmiş bir halde, Loni yumuşak bir uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_016",
+      "title_en": "The Owl's Watch",
+      "title_tr": "Baykuşun Nöbeti",
+      "card_image": "the_owls",
+      "audio_file_en": "the_owls.mp3",
+      "audio_file_tr": "the_owls_tr.mp3",
+      "pages_en": [
+        "An owl sat quietly on a branch under the glowing moon.",
+        "He watched the forest gently, making sure everything felt calm and safe.",
+        "The trees stood still, and the wind moved softly between them.",
+        "Fireflies blinked like tiny lights in the darkness.",
+        "The owl felt peaceful knowing the forest was resting.",
+        "He slowly tucked his head into his feathers.",
+        "With the night calm around him, the owl fell asleep."
+      ],
+      "pages_tr": [
+        "Bir baykuş, parlayan ayın altında bir dalın üzerinde sessizce oturuyordu.",
+        "Ormanı nazikçe izledi, her şeyin sakin ve güvende olduğundan emin oldu.",
+        "Ağaçlar hareketsiz duruyor, rüzgar aralarında yumuşakça süzülüyordu.",
+        "Ateş böcekleri karanlıkta minik ışıklar gibi yanıp sönüyordu.",
+        "Baykuş, ormanın dinlendiğini bilmenin huzurunu hissetti.",
+        "Başını yavaşça tüylerinin arasına gömdü.",
+        "Etrafındaki gece sessizliğiyle birlikte, baykuş uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_017",
+      "title_en": "The Boat on the Lake",
+      "title_tr": "Göldeki Kayık",
+      "card_image": "the_boat",
+      "audio_file_en": "the_boat.mp3",
+      "audio_file_tr": "the_boat_tr.mp3",
+      "pages_en": [
+        "A small wooden boat floated gently on a quiet lake.",
+        "The water was so still it reflected the moon like a mirror.",
+        "Soft ripples moved slowly around the boat.",
+        "Everything felt calm, as if the world had paused for rest.",
+        "The boat drifted closer to the shore without any rush.",
+        "It rested peacefully near the edge of the water.",
+        "Surrounded by silence, the boat felt as though it had fallen asleep."
+      ],
+      "pages_tr": [
+        "Küçük bir tahta kayık, sakin bir gölün üzerinde nazikçe yüzüyordu.",
+        "Su o kadar durgundu ki, ayı bir ayna gibi yansıtıyordu.",
+        "Hafif dalgalanmalar, kayığın etrafında yavaşça hareket ediyordu.",
+        "Her şey, sanki dünya dinlenmek için durmuş gibi huzurlu hissettiriyordu.",
+        "Kayık, hiç acele etmeden kıyıya doğru süzüldü.",
+        "Suyun kenarında, huzur içinde dinlenmeye çekildi.",
+        "Sessizlikle çevrelenmiş bir halde, kayık sanki uykuya dalmış gibiydi."
+      ]
+    },
+    {
+      "id": "story_018",
+      "title_en": "The Curtain Dance",
+      "title_tr": "Perdenin Dansı",
+      "card_image": "the_curtain_dance",
+      "audio_file_en": "the_curtain_dance.mp3",
+      "audio_file_tr": "the_curtain_dance_tr.mp3",
+      "pages_en": [
+        "A gentle breeze moved the curtain back and forth.",
+        "The slow movement felt like a soft, quiet dance.",
+        "The child watched the curtain with sleepy eyes.",
+        "Each movement felt slower than the last.",
+        "The room felt calm and comfortable.",
+        "The child pulled the blanket up gently.",
+        "As the curtain swayed softly, the child drifted to sleep."
+      ],
+      "pages_tr": [
+        "Hafif bir meltem, perdeyi ileri geri hareket ettiriyordu.",
+        "Bu yavaş hareket, yumuşak ve sessiz bir dans gibi hissettiriyordu.",
+        "Çocuk, uykulu gözlerle perdeyi izledi.",
+        "Her hareket, bir öncekinden daha yavaşmış gibi geliyordu.",
+        "Oda sakin ve konforlu hissettiriyordu.",
+        "Çocuk battaniyeyi nazikçe yukarı çekti.",
+        "Perde yumuşakça sallanırken, çocuk uykunun kollarına bıraktı kendini."
+      ]
+    },
+    {
+      "id": "story_019",
+      "title_en": "The Breathing Balloon",
+      "title_tr": "Nefes Balonu",
+      "card_image": "breathing_baloon",
+      "audio_file_en": "breathing_baloon.mp3",
+      "audio_file_tr": "breathing_baloon_tr.mp3",
+      "pages_en": [
+        "The child imagined their breath as a soft floating balloon.",
+        "When breathing in, the balloon slowly grew larger.",
+        "When breathing out, the balloon became smaller again.",
+        "The balloon floated gently through a dark blue sky filled with stars.",
+        "Each breath made the child feel calmer and lighter.",
+        "The body relaxed more with every gentle breath.",
+        "Soon, the balloon drifted away and the child fell asleep."
+      ],
+      "pages_tr": [
+        "Çocuk, nefesini yumuşakça süzülen bir balon olarak hayal etti.",
+        "Nefes alırken, balon yavaşça büyüyordu.",
+        "Nefes verirken, balon tekrar küçülüyordu.",
+        "Balon, yıldızlarla dolu koyu mavi bir gökyüzünde nazikçe süzüldü.",
+        "Her nefes, çocuğun kendini daha sakin ve daha hafif hissetmesini sağlıyordu.",
+        "Her nazik nefesle birlikte vücut daha fazla gevşiyordu.",
+        "Kısa süre sonra, balon uzaklara süzüldü ve çocuk uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_020",
+      "title_en": "The Warm Bed",
+      "title_tr": "Sıcak Yatak",
+      "card_image": "warm_bed",
+      "audio_file_en": "warm_bed.mp3",
+      "audio_file_tr": "warm_bed_tr.mp3",
+      "pages_en": [
+        "The bed felt warm and cozy beneath the soft blanket.",
+        "The child settled into the pillow and felt their body relax.",
+        "Moonlight gently touched the floor beside the bed.",
+        "The room felt quiet, safe, and peaceful.",
+        "The child thought about the nice moments from the day.",
+        "With a calm smile, they whispered, \"Tomorrow will be another good day.\"",
+        "Wrapped in comfort, the child drifted into deep sleep."
+      ],
+      "pages_tr": [
+        "Yatak, yumuşak battaniyenin altında sıcak ve konforlu hissettiriyordu.",
+        "Çocuk yastığa yerleşti ve vücudunun rahatladığını hissetti.",
+        "Ay ışığı, yatağın yanındaki zemine nazikçe dokunuyordu.",
+        "Oda sessiz, güvenli ve huzurlu hissettiriyordu.",
+        "Çocuk, günün en güzel anlarını düşündü.",
+        "Sakin bir gülümsemeyle, 'Yarın yine güzel bir gün olacak,' diye fısıldadı.",
+        "Konforla sarmalanmış bir halde, çocuk derin bir uykuya daldı."
+      ]
+    },
+    {
+      "id": "story_021",
+      "title_en": "The Sleepy Kitten",
+      "title_tr": "Uykulu Yavru Kedi",
+      "card_image": "sleepy_kitten",
+      "audio_file_en": "sleepy_kitten.mp3",
+      "audio_file_tr": "sleepy_kitten_tr.mp3",
+      "pages_en": [
+        "A tiny kitten yawned softly after a long day of exploring the house.",
+        "Her paws felt warm as she walked slowly across the soft carpet.",
+        "She found her favorite spot beside a pillow and curled up gently.",
+        "The room was quiet, filled with calm and comfort.",
+        "The kitten listened to the steady rhythm of breathing nearby.",
+        "Her eyes closed slowly, one blink at a time.",
+        "Soon, she was sleeping peacefully in her cozy little nest."
+      ],
+      "pages_tr": [
+        "Minik bir yavru kedi, evi keşfettiği uzun bir günün ardından yumuşakça esnedi.",
+        "Yumuşak halının üzerinde yavaşça yürürken patileri sıcacıktı.",
+        "Bir yastığın yanında en sevdiği köşeyi buldu ve nazikçe kıvrıldı.",
+        "Oda sessizdi; sakinlik ve konforla doluydu.",
+        "Yavru kedi, yakındaki düzenli nefes alışverişinin ritmini dinledi.",
+        "Gözleri yavaşça kapandı, her seferinde tek bir göz kırpışı kadar ağır.",
+        "Çok geçmeden, sıcacık küçük yuvasında huzur içinde uyuyordu."
+      ]
+    },
+    {
+      "id": "story_022",
+      "title_en": "The Quiet Snow",
+      "title_tr": "Sessiz Kar",
+      "card_image": "quiet_snow",
+      "audio_file_en": "quiet_snow.mp3",
+      "audio_file_tr": "quiet_snow_tr.mp3",
+      "pages_en": [
+        "Outside the window, tiny snowflakes floated softly through the night.",
+        "The world looked calm and white, as if everything had been gently covered.",
+        "No loud sounds could be heard, only peaceful silence.",
+        "The child watched the snow for a moment, feeling calm inside.",
+        "Each snowflake fell slowly, without hurry.",
+        "The child climbed into bed and felt warm under the blanket.",
+        "With the quiet snow outside, sleep came easily."
+      ],
+      "pages_tr": [
+        "Pencerenin dışında, minik kar taneleri gecenin içinde yumuşakça süzülüyordu.",
+        "Dünya, sanki her şey nazikçe örtülmüş gibi sakin ve beyaz görünüyordu.",
+        "Hiçbir gürültü duyulmuyor, sadece huzurlu bir sessizlik hakim oluyordu.",
+        "Çocuk bir an karı izledi, içinde büyük bir sakinlik hissetti.",
+        "Her bir kar tanesi hiç acele etmeden, yavaşça düşüyordu.",
+        "Çocuk yatağına girdi ve battaniyenin altında sıcaklığı hissetti.",
+        "Dışarıdaki sessiz karla birlikte, uyku kolayca geliverdi."
+      ]
+    },
+    {
+      "id": "story_023",
+      "title_en": "The Little Fox's Nest",
+      "title_tr": "Küçük Tilkinin Yuvası",
+      "card_image": "liro",
+      "audio_file_en": "liro.mp3",
+      "audio_file_tr": "liro_tr.mp3",
+      "pages_en": [
+        "A little fox named Liro explored the forest all day long.",
+        "As the sky darkened, he felt ready to return to his nest.",
+        "The trees stood tall and calm under the moonlight.",
+        "Liro padded softly through the grass, careful and quiet.",
+        "Inside his nest, it felt warm and safe.",
+        "He curled his tail around his body and relaxed deeply.",
+        "The forest stayed silent as Liro fell asleep."
+      ],
+      "pages_tr": [
+        "Liro adındaki küçük tilki, bütün gün ormanı keşfetmişti.",
+        "Gökyüzü karardığında, yuvasına dönmeye hazır hissetti.",
+        "Ağaçlar ay ışığı altında uzun ve sakin duruyordu.",
+        "Liro, çimenlerin üzerinde dikkatli ve sessizce, yumuşak adımlarla yürüdü.",
+        "Yuvasının içi sıcak ve güvenli hissettiriyordu.",
+        "Kuyruğunu vücuduna sardı ve derin bir rahatlığa kavuştu.",
+        "Liro uykuya dalarken orman sessizliğini korudu."
+      ]
+    },
+    {
+      "id": "story_024",
+      "title_en": "The Soft Pillow",
+      "title_tr": "Yumuşak Yastık",
+      "card_image": "soft_pillow",
+      "audio_file_en": "soft_pillow.mp3",
+      "audio_file_tr": "soft_pillow_tr.mp3",
+      "pages_en": [
+        "The pillow felt soft and gentle beneath the child’s head.",
+        "Each breath became slower and deeper than before.",
+        "The room stayed quiet, filled with peaceful stillness.",
+        "The blanket rested lightly over the child’s body.",
+        "Nothing needed to be done anymore, only rest.",
+        "The child’s thoughts became slower and softer.",
+        "With comfort all around, sleep arrived gently."
+      ],
+      "pages_tr": [
+        "Yastık, çocuğun başının altında yumuşak ve nazik hissettiriyordu.",
+        "Her nefes, bir öncekinden daha yavaş ve daha derindi.",
+        "Oda sessiz kaldı; huzurlu bir dinginlikle doluydu.",
+        "Battaniye, çocuğun vücudunun üzerinde hafifçe duruyordu.",
+        "Artık yapılması gereken hiçbir şey kalmamıştı, sadece dinlenmek gerekiyordu.",
+        "Çocuğun düşünceleri daha yavaş ve daha yumuşak bir hal aldı.",
+        "Dört bir yanını saran o konforla, uyku nazikçe geliverdi."
+      ]
+    },
+    {
+      "id": "story_025",
+      "title_en": "The Firefly Lights",
+      "title_tr": "Ateş Böceği Işıkları",
+      "card_image": "firefly_lights",
+      "audio_file_en": "firefly_lights.mp3",
+      "audio_file_tr": "firefly_lights_tr.mp3",
+      "pages_en": [
+        "Tiny fireflies glowed softly in the evening garden.",
+        "Their lights blinked slowly like little stars near the ground.",
+        "A child watched them quietly from the window.",
+        "Each gentle glow felt calm and magical.",
+        "The garden air felt cool and peaceful.",
+        "The child said good night to the tiny lights.",
+        "With a calm heart, the child drifted into sleep."
+      ],
+      "pages_tr": [
+        "Akşam bahçesinde, minik ateş böcekleri yumuşakça parlıyordu.",
+        "Işıkları, yerin yakınındaki küçük yıldızlar gibi yavaşça yanıp sönüyordu.",
+        "Bir çocuk, pencereden onları sessizce izledi.",
+        "Her bir nazik parıltı, huzurlu ve büyülü hissettiriyordu.",
+        "Bahçenin havası serin ve dingin geliyordu.",
+        "Çocuk, bu minik ışıklara iyi geceler dedi.",
+        "Sakin bir kalple, çocuk uykunun kollarına bıraktı kendini."
+      ]
+    }
   ]
 }

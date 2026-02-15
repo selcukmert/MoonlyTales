@@ -75,6 +75,9 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         isPreparingContent = true
         errorMessage = nil
         
+        // ÖNEMLİ: Dili hemen ayarla (MP3 yükleme için gerekli)
+        self.currentLanguage = language
+        
         // Also prepare background music
         prepareBackgroundMusic()
         
@@ -99,7 +102,6 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
             
             // Store results
             self.sentences = sentences
-            self.currentLanguage = language
             
             // Calculate total time
             let words = text.components(separatedBy: .whitespaces).count
@@ -114,14 +116,44 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     }
     
     /// Load MP3 file from bundle
+    /// Supports both filename suffixes (_tr) and folder structure
     private func loadMP3(fileName: String) async -> Bool {
         let fileNameWithoutExt = (fileName as NSString).deletingPathExtension
         let fileExtension = (fileName as NSString).pathExtension.isEmpty ? "mp3" : (fileName as NSString).pathExtension
         
-        guard let bundleURL = Bundle.main.url(forResource: fileNameWithoutExt, withExtension: fileExtension) else {
+        var bundleURL: URL?
+        
+        // ÖNCE: Verilen dosya adını direkt dene (örn: little_bunny_tr.mp3)
+        // Bu şekilde JSON'daki tam dosya adı kullanılır
+        bundleURL = Bundle.main.url(
+            forResource: fileNameWithoutExt,
+            withExtension: fileExtension,
+            subdirectory: "Audio"
+        )
+        
+        // Audio/ klasöründe bulunamadıysa root'ta ara
+        if bundleURL == nil {
+            bundleURL = Bundle.main.url(forResource: fileNameWithoutExt, withExtension: fileExtension)
+        }
+        
+        // YEDEK: Dil klasörü yapısını dene (gelecekteki kullanım için)
+        if bundleURL == nil {
+            let languageFolder = currentLanguage == .turkish ? "tr" : "en"
+            bundleURL = Bundle.main.url(
+                forResource: fileNameWithoutExt,
+                withExtension: fileExtension,
+                subdirectory: "Audio/\(languageFolder)"
+            )
+        }
+        
+        guard let bundleURL = bundleURL else {
             print("⚠️ Bundle'da MP3 bulunamadı: \(fileNameWithoutExt).\(fileExtension)")
+            print("   Aranan dosya: \(fileName)")
+            print("   Dil: \(currentLanguage)")
             return false
         }
+        
+        print("✅ Bundle'dan audio yükleniyor: \(bundleURL.lastPathComponent) (Dil: \(currentLanguage))")
         
         do {
             // Audio session'ı ayarla
@@ -502,15 +534,16 @@ class SpeechManager: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
 struct StoryReadingView: View {
     let story: Story
     @StateObject private var speechManager = SpeechManager()
+    @EnvironmentObject private var languageManager: LanguageManager
     @Environment(\.dismiss) private var dismiss
     @State private var contentLoaded = false
     
     var storyText: String {
-        story.fullDescription
+        story.fullDescription(for: languageManager.currentLanguage)
     }
     
     var storyTitle: String {
-        story.title
+        story.title(for: languageManager.currentLanguage)
     }
     
     var body: some View {
@@ -552,13 +585,21 @@ struct StoryReadingView: View {
             .ignoresSafeArea(edges: .bottom)
         }
         .navigationBarHidden(true)
-        .swipeBack {
-            // Stop audio before going back
-            speechManager.stop()
-        }
         .task {
             // Prepare content asynchronously on appear
             await prepareContent()
+        }
+        .onChange(of: languageManager.currentLanguage) { oldLanguage, newLanguage in
+            // Dil değiştiğinde ses dosyasını yeniden yükle
+            Task {
+                // Önce mevcut sesi durdur
+                speechManager.stop()
+                
+                // Yeni dile göre içeriği yeniden hazırla
+                await prepareContent()
+                
+                print("🌍 Dil değişti: \(oldLanguage) -> \(newLanguage)")
+            }
         }
         .onDisappear {
             speechManager.stop()
@@ -654,8 +695,13 @@ struct StoryReadingView: View {
         // Show content immediately (fast)
         contentLoaded = true
         
-        // Prepare audio in background - MP3 varsa onu kullan, yoksa TTS
-        await speechManager.prepareContent(text: storyText, language: .english, audioFile: story.audioFile)
+        // Prepare audio in background - Dile göre doğru ses dosyasını kullan
+        let audioFileName = story.audioFile(for: languageManager.currentLanguage)
+        await speechManager.prepareContent(
+            text: storyText, 
+            language: languageManager.currentLanguage, 
+            audioFile: audioFileName
+        )
     }
 }
 
@@ -792,5 +838,6 @@ struct AudioPlayerView: View {
 #Preview {
     NavigationStack {
         StoryReadingView(story: Story.sampleStories[2])
+            .environmentObject(LanguageManager.shared)
     }
 }
